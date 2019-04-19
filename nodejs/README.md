@@ -1,6 +1,6 @@
 # Basic usage of js sdk on Node.js
 
-This repo contains sample code for invoking simple AI service calls using the snet-sdk on Node.js.
+This repo contains sample code for invoking simple AI service calls using the [snet-sdk](https://www.npmjs.com/package/snet-sdk) on Node.js.
 
 You could explore the code under `src` directory.
 
