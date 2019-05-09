@@ -4,7 +4,7 @@ export default {
   signerPrivateKey: process.env.PRIVATE_KEY,
   networkId: process.env.NETWORK_ID,
   ipfsEndpoint: process.env.IPFS_ENDPOINT,
-  defaultGasPrice: 4700000,
-  defaultGasLimit: 210000,
+  defaultGasPrice: process.env.DEFAULT_GAS_PRICE,
+  defaultGasLimit: process.env.DEFAULT_GAS_LIMIT,
   blockOffset: process.env.BLOCK_OFFSET,
 };

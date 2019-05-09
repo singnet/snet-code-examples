@@ -4,7 +4,7 @@
   "description": "A simple example project to demonstrate the usage of snet-sdk-js from nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index.js"
+    "start": "babel-node src/calculator"
   },
   "keywords": [
     "snet-sdk",
