@@ -1,17 +1,27 @@
-from snet_sdk import Snet
+from snet_sdk import SnetSDK
 
-import config
+import example_service_pb2
+import example_service_pb2_grpc
 
-snet = Snet(private_key=config.private_key, allow_transactions=True)
+from config import config
 
-translation = snet.client("snet", "translation")
+sdk = SnetSDK(config)
 
-stub = translation.grpc.translate_pb2_grpc.TranslationStub(translation.grpc_channel)
+org_id = "snet"
+service_id = "example-service"
 
-request = translation.grpc.translate_pb2.Request(
-    source_language="en",
-    target_language="de",
-    text="Hello World."
-)
+service_client = sdk.create_service_client(org_id, service_id, example_service_pb2_grpc.CalculatorStub)
 
-result = stub.translate(request).translation
+request = example_service_pb2.Numbers(a=20, b=3)
+
+result = service_client.stub.add(request)
+print("Performing 20 + 3: {}".format(result))
+
+result = service_client.stub.mul(request)
+print("Performing 20 * 3: {}".format(result))
+
+result = service_client.stub.div(request)
+print("Performing 20 / 3: {}".format(result))
+
+result = service_client.stub.sub(request)
+print("Performing 20 - 3: {}".format(result))
