@@ -15,7 +15,7 @@ $ cd snet-code-examples
 
 Then change your current directory to nodejs
 ```
-$ cd nodejs
+$ cd nodejs/client
 ```
 
 Install all the dependencies 
