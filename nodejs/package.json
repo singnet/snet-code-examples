@@ -4,7 +4,8 @@
   "description": "A simple example project to demonstrate the usage of snet-sdk-js from nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/calculator"
+    "calculator-example": "babel-node src/calculator",
+    "video-recog-example": "babel-node src/video"
   },
   "keywords": [
     "snet-sdk",
@@ -16,7 +17,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "snet-sdk": "^1.0.2-alpha",
+    "snet-sdk": "1.0.4-beta",
     "dotenv": "^7.0.0",
     "es6-promise": "^4.2.6"
   },

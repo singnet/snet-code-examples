@@ -15,13 +15,14 @@ const main = async () => {
   const groupName = 'default_group';
   let defaultPaymentChannelManagementStrategy = new DefaultPaymentChannelManagementStrategy(sdk);
 
-  const serviceClient = await sdk.createServiceClient(orgId, serviceId, groupName, defaultPaymentChannelManagementStrategy, services.CalculatorClient);
+  const serviceClient = await sdk.createServiceClient(orgId, serviceId, services.CalculatorClient, groupName, defaultPaymentChannelManagementStrategy);
 
   const responseHandler = (resolve, reject) => (err, result) => {
     if(err) {
       console.log('GRPC call failed');
       console.error(err);
       reject(err);
+      sdk.web3.currentProvider.connection.close();
     } else {
       console.log('Result:', result.getValue());
       console.log('<---------->');
@@ -35,22 +36,22 @@ const main = async () => {
 
   await new Promise((resolve, reject) => {
     console.log('Performing 20 + 3');
-    serviceClient.stub.add(request, responseHandler(resolve, reject));
+    serviceClient.service.add(request, responseHandler(resolve, reject));
   });
 
   await new Promise((resolve, reject) => {
     console.log('Performing 20 - 3');
-    serviceClient.stub.sub(request, responseHandler(resolve, reject));
+    serviceClient.service.sub(request, responseHandler(resolve, reject));
   });
 
   await new Promise((resolve, reject) => {
     console.log('Performing 20 * 3');
-    serviceClient.stub.mul(request, responseHandler(resolve, reject));
+    serviceClient.service.mul(request, responseHandler(resolve, reject));
   });
 
   await new Promise((resolve, reject) => {
     console.log('Performing 20 / 3');
-    serviceClient.stub.div(request, responseHandler(resolve, reject));
+    serviceClient.service.div(request, responseHandler(resolve, reject));
   });
 
   sdk.web3.currentProvider.connection.close();

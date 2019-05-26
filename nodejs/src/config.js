@@ -6,5 +6,4 @@ export default {
   ipfsEndpoint: process.env.IPFS_ENDPOINT,
   defaultGasPrice: process.env.DEFAULT_GAS_PRICE,
   defaultGasLimit: process.env.DEFAULT_GAS_LIMIT,
-  blockOffset: process.env.BLOCK_OFFSET,
 };
