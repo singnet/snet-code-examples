@@ -1,0 +1,7 @@
+config = {
+    "private_key": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "eth_rpc_endpoint": "https://ropsten.infura.io" # This is optional. If nothing is specified, the default is "https://mainnet.infura.io"
+    # SingularityNET contracts are available on the Ethereum mainnet and on the Kovan and Ropsten test networks.
+    # eth_rpc_endpoint for Ropsten: "https://ropsten.infura.io"
+    # eth_rpc_endpoint for Kovan: "https://kovan.infura.io"
+}
