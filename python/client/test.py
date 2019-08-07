@@ -25,7 +25,8 @@ print("Result: {}".format(result.value))
 
 service_client = sdk.create_service_client(
     "snet", "i3d-video-action-recognition", video_action_recon_pb2_grpc.VideoActionRecognitionStub)
-request = video_action_recon_pb2.Input(model="400", url="http://crcv.ucf.edu/THUMOS14/UCF101/UCF101/v_CricketShot_g04_c02.avi")
+request = video_action_recon_pb2.Input(
+    model="400", url="http://crcv.ucf.edu/THUMOS14/UCF101/UCF101/v_CricketShot_g04_c02.avi")
 print("Performing video action recognition")
 result = service_client.service.video_action_recon(request)
 print("Result: {}".format(result))
@@ -33,7 +34,8 @@ print("Result: {}".format(result))
 
 service_client = sdk.create_service_client(
     "snet", "cntk-image-recon", image_recon_pb2_grpc.RecognizerStub)
-request = image_recon_pb2.Input(model="ResNet152", img_path="https://www.fiftyflowers.com/site_files/FiftyFlowers/Image/Product/Mini-Black-Eye-bloom-350_c7d02e72.jpg")
+request = image_recon_pb2.Input(
+    model="ResNet152", img_path="https://www.fiftyflowers.com/site_files/FiftyFlowers/Image/Product/Mini-Black-Eye-bloom-350_c7d02e72.jpg")
 print("Performing image recognition")
 result = service_client.service.flowers(request)
 print("Result: {}".format(result))
