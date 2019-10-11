@@ -12,7 +12,7 @@ const main = async () => {
   const sdk = new SnetSDK(config);
 
   const GRPCServiceClientStub = services.VideoActionRecognitionClient;
-  const defaultPaymentChannelManagementStrategy = new DefaultPaymentChannelManagementStrategy(sdk);
+  const defaultPaymentChannelManagementStrategy = new DefaultPaymentChannelManagementStrategy(sdk, 100);
   const serviceClient = await sdk.createServiceClient(orgId, serviceId, GRPCServiceClientStub, groupName, defaultPaymentChannelManagementStrategy);
 
   const request = new messages.Input();
