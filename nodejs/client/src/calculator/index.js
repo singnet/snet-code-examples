@@ -1,7 +1,7 @@
 import 'dotenv/config';
 require('es6-promise').polyfill();
 
-import SnetSDK, { DefaultPaymentChannelManagementStrategy } from 'snet-sdk';
+import SnetSDK, {DefaultPaymentChannelManagementStrategy} from 'snet-sdk';
 
 import services from './example_service_grpc_pb';
 import messages from './example_service_pb';
@@ -13,12 +13,15 @@ const main = async () => {
   const orgId = 'snet';
   const serviceId = 'freecall';
   const groupName = 'default_group';
-  const defaultPaymentChannelManagementStrategy = new DefaultPaymentChannelManagementStrategy(sdk, 100);
+  const defaultPaymentChannelManagementStrategy =
+      new DefaultPaymentChannelManagementStrategy(sdk, 100);
 
-  const serviceClient = await sdk.createServiceClient(orgId, serviceId, services.CalculatorClient, groupName, defaultPaymentChannelManagementStrategy);
+  const serviceClient = await sdk.createServiceClient(
+      orgId, serviceId, services.CalculatorClient, groupName,
+      defaultPaymentChannelManagementStrategy);
 
   const responseHandler = (resolve, reject) => (err, result) => {
-    if(err) {
+    if (err) {
       console.log('GRPC call failed');
       console.error(err);
       reject(err);
