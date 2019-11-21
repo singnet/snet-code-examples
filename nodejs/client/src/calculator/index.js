@@ -11,9 +11,9 @@ const sdk = new SnetSDK(config);
 
 const main = async () => {
   const orgId = 'snet';
-  const serviceId = 'example-service';
+  const serviceId = 'freecall';
   const groupName = 'default_group';
-  let defaultPaymentChannelManagementStrategy = new DefaultPaymentChannelManagementStrategy(sdk);
+  const defaultPaymentChannelManagementStrategy = new DefaultPaymentChannelManagementStrategy(sdk, 100);
 
   const serviceClient = await sdk.createServiceClient(orgId, serviceId, services.CalculatorClient, groupName, defaultPaymentChannelManagementStrategy);
 
